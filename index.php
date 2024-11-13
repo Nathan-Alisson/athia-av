@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 
 use App\Core\Router;
-use App\Controller\HomeController;
+// use App\Controller\HomeController;
 use App\Controller\EmpresaController;
 use App\Controller\SetorController;
 
