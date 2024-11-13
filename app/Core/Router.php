@@ -18,6 +18,10 @@ class Router {
       }
     }
 
-    echo "Página não encontrada";
+    $this->render404();
+  }
+
+  private function render404() {
+    require VIEW_PATH . '404.php';  // Exibe a página 404
   }
 }

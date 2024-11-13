@@ -19,7 +19,10 @@
     </div>
 
     <label for="setores">Selecione os setores:</label>
-    <select name="setores[]" multiple>
+    <p class="text-muted" style="font-size: 0.9rem;">
+      Para selecionar múltiplos setores, mantenha pressionada a tecla <strong>CTRL</strong> enquanto faz suas seleções.
+    </p>
+    <select name="setores[]" class="mt-0" multiple>
       <?php foreach ($setores as $setor): ?>
         <option value="<?= $setor->getId() ?>"><?= $setor->getDescricao() ?></option>
       <?php endforeach; ?>

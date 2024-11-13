@@ -15,7 +15,7 @@
       <h5 class="text-light">Menu</h5>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a href="/" class="nav-link">Início</a>
+          <a href="/" class="nav-link">Relatórios</a>
         </li>
 
         <li class="nav-item">
@@ -24,10 +24,6 @@
 
         <li class="nav-item">
           <a href="/setor" class="nav-link">Setores</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/relatorio" class="nav-link">Relatórios</a>
         </li>
       </ul>
     </div>

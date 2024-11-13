@@ -18,18 +18,20 @@ try {
 
 $router = new Router();
 
-$router->addRoute('GET', '/', [new HomeController(), 'index']);
+$router->addRoute('GET', '/', [new EmpresaController($pdo), 'report']);
+$router->addRoute('GET', '/relatorio', [new EmpresaController($pdo), 'report']);
 $router->addRoute('GET', '/empresa', [new EmpresaController($pdo), 'index']);
 $router->addRoute('GET', '/empresa/create', [new EmpresaController($pdo), 'create']);
 $router->addRoute('POST', '/empresa/create', [new EmpresaController($pdo), 'create']);
 $router->addRoute('GET', '/empresa/edit/(\d+)', [new EmpresaController($pdo), 'edit']);
 $router->addRoute('POST', '/empresa/edit/(\d+)', [new EmpresaController($pdo), 'edit']);
 $router->addRoute('GET', '/empresa/delete/(\d+)', [new EmpresaController($pdo), 'delete']);
-$router->addRoute('GET', '/relatorio', [new EmpresaController($pdo), 'report']);
 
 $router->addRoute('GET', '/setor', [new SetorController($pdo), 'index']);
 $router->addRoute('GET', '/setor/create', [new SetorController($pdo), 'create']);
 $router->addRoute('POST', '/setor/create', [new SetorController($pdo), 'create']);
+$router->addRoute('GET', '/setor/edit/(\d+)', [new SetorController($pdo), 'edit']);
+$router->addRoute('POST', '/setor/edit/(\d+)', [new SetorController($pdo), 'edit']);
 $router->addRoute('GET', '/setor/delete/(\d+)', [new SetorController($pdo), 'delete']);
 
 $path = isset($_GET['path']) ? '/' . ltrim($_GET['path'], '/') : '/';
