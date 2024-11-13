@@ -1,13 +1,12 @@
 <?php
 $title = "Empresas";
-
 ?>
 
 <div class="container my-4">
   <h2 class="text-center mb-4"><?= $title ?></h2>
 
   <div class="d-flex justify-content-end mb-3">
-    <a href="/empresa/create" class="btn btn-primary">Adicionar Nova Empresa</a>
+    <a href="/empresa/create" class="btn btn-primary">Adicionar nova Empresa</a>
   </div>
 
   <table class="table table-striped table-bordered table-hover">
@@ -23,13 +22,13 @@ $title = "Empresas";
     <tbody>
       <?php foreach ($empresas as $empresa): ?>
         <tr>
-          <td><?= $empresa->id ?></td>
-          <td><?= $empresa->razao_social ?></td>
-          <td><?= $empresa->nome_fantasia ?></td>
-          <td><?= $empresa->cnpj ?></td>
+          <td><?= $empresa->getId() ?></td>
+          <td><?= $empresa->getRazaoSocial() ?></td>
+          <td><?= $empresa->getNomeFantasia() ?></td>
+          <td><?= $empresa->getCnpj() ?></td>
           <td>
-            <a href="/empresa/edit/<?= $empresa->id ?>" class="btn btn-warning btn-sm">Editar</a>
-            <a href="/empresa/delete/<?= $empresa->id ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+            <a href="/empresa/edit/<?= $empresa->getId() ?>" class="btn btn-warning btn-sm">Editar</a>
+            <a href="/empresa/delete/<?= $empresa->getId() ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
           </td>
         </tr>
       <?php endforeach; ?>

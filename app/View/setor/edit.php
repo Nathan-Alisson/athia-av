@@ -18,13 +18,6 @@
       <input type="text" name="cnpj" id="cnpj" value="<?= $empresa->getCnpj() ?>" class="form-control" placeholder="Digite o CNPJ" required>
     </div>
 
-    <label for="setores">Selecione os setores:</label>
-    <select name="setores[]" multiple>
-      <?php foreach ($setores as $setor): ?>
-        <option value="<?= $setor->getId() ?>"><?= $setor->getDescricao() ?></option>
-      <?php endforeach; ?>
-    </select>
-
     <div class="col-12 d-flex justify-content-end">
       <button type="submit" class="btn btn-primary">Salvar</button>
       <a href="/empresas" class="btn btn-secondary ms-2">Voltar</a>

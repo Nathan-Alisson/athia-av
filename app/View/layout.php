@@ -1,7 +1,3 @@
-<?php
-
-use PSpell\Config;
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,36 +19,15 @@ use PSpell\Config;
         </li>
 
         <li class="nav-item">
-          <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
-            <span>Empresas</span>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse submenu" id="submenu1">
-            <ul class="nav flex-column ms-3">
-              <li class="nav-item"><a href="/empresa" class="nav-link">Lista</a></li>
-              <li class="nav-item"><a href="/empresa/create" class="nav-link">Criar</a></li>
-              <li class="nav-item"><a href="/empresa/edit" class="nav-link">Editar</a></li>
-              <li class="nav-item"><a href="/empresa/delete" class="nav-link">Exluir</a></li>
-            </ul>
-          </div>
+          <a href="/empresa" class="nav-link">Empresas</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
-            <span>Setores</span>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse submenu" id="submenu2">
-            <ul class="nav flex-column ms-3">
-              <li class="nav-item"><a href="#" class="nav-link">Criar</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Editar</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Excluir</a></li>
-            </ul>
-          </div>
+          <a href="/setor" class="nav-link">Setores</a>
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">Relatórios</a>
+          <a href="/relatorio" class="nav-link">Relatórios</a>
         </li>
       </ul>
     </div>
