@@ -1,3 +1,8 @@
+<?php
+$title = "Empresas";
+
+?>
+
 <h2>Empresas</h2>
 <a href="/empresas/create">Adicionar Nova Empresa</a>
 <table>
@@ -27,3 +32,7 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
+<?php
+$content = ob_get_clean();
+require VIEW_PATH . 'layout.php';
