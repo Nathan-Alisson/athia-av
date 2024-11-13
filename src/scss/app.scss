@@ -6,21 +6,21 @@
   left: 0;
   background-color: #343a40;
   color: #fff;
-}
 
-.sidebar .nav-link {
-  color: #adb5bd;
-}
+  & .nav-link {
+    color: #adb5bd;
 
-.sidebar .nav-link:hover {
-  color: #ffffff;
-  background-color: #495057;
-}
+    &:hover {
+      color: #ffffff;
+      background-color: #495057;
+    }
+  }
 
-.sidebar .submenu {
-  background-color: #495057;
-}
+  .submenu {
+    background-color: #495057;
 
-.submenu .nav-link {
-  padding-left: 2rem;
+    & .nav-link {
+        padding-left: 2rem;
+      }
+  }
 }

@@ -7,5 +7,4 @@ abstract class BaseController {
 
     require_once __DIR__ . "/../view/{$view}.php";
   }
-
 }
