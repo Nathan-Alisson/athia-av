@@ -4,34 +4,35 @@ require 'vendor/autoload.php';
 define('VIEW_PATH', __DIR__ . '/app/View/');
 
 use App\Controller\EmpresaController;
+use App\Controller\HomeController;
 
 try {
   $pdo = new PDO("mysql:host=localhost;dbname=athia", "user", "user123");
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo "Erro na conexão com o banco de dados: " . $e->getMessage();
-  exit; // Finaliza o script caso a conexão falhe
+  exit;
 }
 
-
-$controller = new EmpresaController($pdo);
+$homeController = new HomeController();
+$empresaController = new EmpresaController($pdo);
 
 $path = isset($_GET['path']) ? $_GET['path'] : '/';
 
 switch ($path) {
   case '/':
-    echo "Bem-vindo à página inicial!";
+    $homeController->index();
     break;
   case 'empresa':
-    $controller->index();
+    $empresaController->index();
     break;
   case 'empresa/create':
-    $controller->create();
+    $empresaController->create();
     break;
   case (preg_match('/^empresa\/edit\/(\d+)$/', $path, $matches) ? true : false):
     $id = $matches[1] ?? null;
     if ($id !== null) {
-      $controller->edit($id);
+      $empresaController->edit($id);
     } else {
       echo "ID inválido para edição";
     }
@@ -39,7 +40,7 @@ switch ($path) {
   case (preg_match('/^empresa\/delete\/(\d+)$/', $path, $matches) ? true : false):
     $id = $matches[1] ?? null;
     if ($id !== null) {
-      $controller->delete($id);
+      $empresaController->delete($id);
     } else {
       echo "ID inválido para exclusão";
     }

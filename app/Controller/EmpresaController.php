@@ -19,13 +19,12 @@ class EmpresaController extends BaseController {
   public function create() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $empresa = new Empresa();
-      $empresa->nome = $_POST['nome'];
+      $empresa->razao_social = $_POST['razao_social'];
+      $empresa->nome_fantasia = $_POST['nome_fantasia'];
       $empresa->cnpj = $_POST['cnpj'];
-      $empresa->endereco = $_POST['endereco'];
-      $empresa->telefone = $_POST['telefone'];
 
       $this->empresaDAO->createCompany($empresa);
-      header('Location: /empresas');
+      header('Location: /empresa');
       exit;
     }
 
@@ -42,7 +41,7 @@ class EmpresaController extends BaseController {
       $empresa->telefone = $_POST['telefone'];
 
       $this->empresaDAO->updateCompany($empresa);
-      header('Location: /empresas');
+      header('Location: /empresa');
       exit;
     }
 
@@ -51,7 +50,7 @@ class EmpresaController extends BaseController {
 
   public function delete($id) {
     $this->empresaDAO->deleteCompany($id);
-    header('Location: /empresas');
+    header('Location: /empresa');
     exit;
   }
 }

@@ -3,35 +3,42 @@ $title = "Empresas";
 
 ?>
 
-<h2>Empresas</h2>
-<a href="/empresas/create">Adicionar Nova Empresa</a>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>CNPJ</th>
-      <th>Endereço</th>
-      <th>Telefone</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($empresas as $empresa): ?>
+<div class="container my-4">
+  <h2 class="text-center mb-4"><?= $title ?></h2>
+
+  <!-- Botão de Adicionar Nova Empresa -->
+  <div class="d-flex justify-content-end mb-3">
+    <a href="/empresa/create" class="btn btn-primary">Adicionar Nova Empresa</a>
+  </div>
+
+  <!-- Tabela de Empresas -->
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
       <tr>
-        <td><?= $empresa->id ?></td>
-        <td><?= $empresa->nome ?></td>
-        <td><?= $empresa->cnpj ?></td>
-        <td><?= $empresa->endereco ?></td>
-        <td><?= $empresa->telefone ?></td>
-        <td>
-          <a href="/empresas/edit/<?= $empresa->id ?>">Editar</a>
-          <a href="/empresas/delete/<?= $empresa->id ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
-        </td>
+        <th>ID</th>
+        <th>Razão Social</th>
+        <th>Nome Fantasia</th>
+        <th>CNPJ</th>
+        <th>Ações</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <?php foreach ($empresas as $empresa): ?>
+        <tr>
+          <td><?= $empresa->id ?></td>
+          <td><?= $empresa->razao_social ?></td>
+          <td><?= $empresa->nome_fantasia ?></td>
+          <td><?= $empresa->cnpj ?></td>
+          <td>
+            <!-- Botões de Ação -->
+            <a href="/empresa/edit/<?= $empresa->id ?>" class="btn btn-warning btn-sm">Editar</a>
+            <a href="/empresa/delete/<?= $empresa->id ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
 
 <?php
 $content = ob_get_clean();

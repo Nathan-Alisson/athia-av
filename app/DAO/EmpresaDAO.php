@@ -13,28 +13,28 @@ class EmpresaDAO {
   }
 
   public function listCompanies() {
-    $stmt = $this->pdo->query("SELECT * FROM empresas");
+    $stmt = $this->pdo->query("SELECT * FROM empresa");
     return $stmt->fetchAll(PDO::FETCH_CLASS, Empresa::class);
   }
 
   public function createCompany(Empresa $empresa) {
-    $stmt = $this->pdo->prepare("INSERT INTO empresas (nome, cnpj, endereco, telefone) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$empresa->nome, $empresa->cnpj, $empresa->endereco, $empresa->telefone]);
+    $stmt = $this->pdo->prepare("INSERT INTO empresa (razao_social, nome_fantasia, cnpj) VALUES (?, ?, ?)");
+    $stmt->execute([$empresa->razao_social, $empresa->nome_fantasia, $empresa->cnpj]);
   }
 
   public function searchCompanyById($id) {
-    $stmt = $this->pdo->prepare("SELECT * FROM empresas WHERE id_empresa = ?");
+    $stmt = $this->pdo->prepare("SELECT * FROM empresa WHERE id = ?");
     $stmt->execute([$id]);
     return $stmt->fetchObject(Empresa::class);
   }
 
   public function updateCompany(Empresa $empresa) {
-    $stmt = $this->pdo->prepare("UPDATE empresas SET nome = ?, cnpj = ?, endereco = ?, telefone = ? WHERE id_empresa = ?");
-    $stmt->execute([$empresa->nome, $empresa->cnpj, $empresa->endereco, $empresa->telefone, $empresa->id]);
+    $stmt = $this->pdo->prepare("UPDATE empresa SET razao_social = ?, nome_fantasia = ?, cnpj = ? WHERE id = ?");
+    $stmt->execute([$empresa->razao_social, $empresa->nome_fantasia, $empresa->cnpj]);
   }
 
   public function deleteCompany($id) {
-    $stmt = $this->pdo->prepare("DELETE FROM empresas WHERE id_empresa = ?");
+    $stmt = $this->pdo->prepare("DELETE FROM empresa WHERE id = ?");
     $stmt->execute([$id]);
   }
 }

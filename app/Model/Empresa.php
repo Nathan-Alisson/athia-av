@@ -3,8 +3,7 @@ namespace App\Model;
 
 class Empresa {
   public $id;
-  public $nome;
+  public $razao_social;
+  public $nome_fantasia;
   public $cnpj;
-  public $endereco;
-  public $telefone;
 }
