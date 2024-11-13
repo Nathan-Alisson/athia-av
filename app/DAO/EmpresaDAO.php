@@ -30,7 +30,7 @@ class EmpresaDAO {
 
   public function updateCompany(Empresa $empresa) {
     $stmt = $this->pdo->prepare("UPDATE empresa SET razao_social = ?, nome_fantasia = ?, cnpj = ? WHERE id = ?");
-    $stmt->execute([$empresa->razao_social, $empresa->nome_fantasia, $empresa->cnpj]);
+    $stmt->execute([$empresa->razao_social, $empresa->nome_fantasia, $empresa->cnpj, $empresa->id]);
   }
 
   public function deleteCompany($id) {

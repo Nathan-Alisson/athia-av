@@ -35,10 +35,9 @@ class EmpresaController extends BaseController {
     $empresa = $this->empresaDAO->searchCompanyById($id);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $empresa->nome = $_POST['nome'];
+      $empresa->razao_social = $_POST['razao_social'];
+      $empresa->nome_fantasia = $_POST['nome_fantasia'];
       $empresa->cnpj = $_POST['cnpj'];
-      $empresa->endereco = $_POST['endereco'];
-      $empresa->telefone = $_POST['telefone'];
 
       $this->empresaDAO->updateCompany($empresa);
       header('Location: /empresa');
